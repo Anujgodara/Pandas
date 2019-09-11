@@ -1,0 +1,38 @@
+#converting numpy array to an series
+import numpy as np
+import pandas as pd
+arr = np.array([10,20,30,40,50])
+print(arr)
+ser = pd.Series(arr)
+print(ser)
+
+#converting series to numeric
+s1 = pd.Series([100,200,'python',300.12,400])
+print(s1)
+s2 = pd.to_numeric(s1,errors='')
+print(s2)
+
+#converting a column of table into series
+s3 = pd.DataFrame({'col1':[1,2,3,4,5],
+                  'col2':[6,7,8,9,10],
+                  'col3':[11,12,13,14,15]})
+print(s3)
+s4 = pd.Series(s3['col1'])
+print(s4)
+
+#converting a series to numpy array
+import numpy as np
+import pandas as pd
+s5 = pd.Series([100,200,'python',300.12,400])
+print(s5)
+s6 = np.array(s5)
+print(s6)
+
+#converting series of lists in one series
+s = pd.Series([
+    ['Red', 'Green', 'White'],
+    ['Red', 'Black'],
+    ['Yellow']])
+print(s)
+s = s.apply(pd.Series).stack().reset_index(drop=True)
+print(s)
