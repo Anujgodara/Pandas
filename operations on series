@@ -1,0 +1,38 @@
+#sort values of the series
+import numpy as np
+import pandas as pd
+ser = pd.Series(['100','200','python','300.12','400'])
+print(ser)
+ser = pd.Series(ser).sort_values()
+print(ser)
+
+#append some data to a series
+import pandas as pd
+ser = pd.Series(['100','200','python','300.12','400'])
+print(ser)
+s = pd.Series(['500','php'])
+ser = ser.append(s)
+print(ser)
+
+#get some values of series applying a series
+import pandas as pd
+ser = pd.Series([0,1,2,3,4,5,6,7,8,9])
+print(ser)
+new_ser = ser[ser<6]
+print(new_ser)
+
+#changing order of index
+import pandas as pd
+ser = pd.Series([0,1,2,3,4,5],index=['a','b','c','d','e','f'])
+print(ser)
+ser = ser.reindex(['b','a','c','d','e','f'])
+print(ser)
+
+#geting mean and standard deviation of values of series
+import pandas as pd
+ser = pd.Series([1,2,3,4,5,6,7,8,9,5,3])
+print(ser)
+m = ser.mean()
+print(m)
+sd = ser.std()
+print(sd)
