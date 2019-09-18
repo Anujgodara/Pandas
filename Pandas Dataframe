@@ -1,0 +1,21 @@
+import pandas as pd
+import numpy as np
+df = pd.DataFrame({'Name':['Real','Ayush','Abhi'],'Score':[90,95,np.nan],'Attempts':[1,1,1],
+                   'Qualify':['yes','yes','yes'],'Labels':['a','b','c']})
+
+#index set as Labels
+df = df.set_index('Labels')
+print(df)
+
+#prints the information about the dataframe
+inform = df.info()
+inform
+
+#prints top 2 rows
+print(df.head(2))
+
+#prints only name and score columns
+print(df[['Name','Score']])
+
+#prints specified rows and columns
+print(df.iloc[[0,2],[0,1]])
