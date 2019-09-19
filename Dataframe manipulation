@@ -1,0 +1,64 @@
+import pandas as pd
+import numpy as np
+df1 = pd.DataFrame({'Name':['Real','Ayush','Abhi'],'Score':[90,95,np.nan],'Attempts':[1,3,1],
+                   'Qualify':['yes','yes','yes'],'Labels':['a','b','c']})
+
+#index set as Labels
+df1 = df1.set_index('Labels')
+print(df1)
+
+#prints the information about the dataframe
+inform = df1.info()
+inform
+
+#prints top 2 rows
+print(df1.head(2))
+
+#prints only name and score columns
+print(df1[['Name','Score']])
+
+#prints specified rows and columns
+print(df1.iloc[[0,2],[0,1]])
+
+#print number of rows and columns
+r = len(df1.axes[0])
+c = len(df1.axes[1])
+print("number of rows",r)
+print("number of columns",c)
+
+#print that row where score is null
+miss = df1[df1['Score'].isnull()]
+print(miss)
+
+#print score between 90 and 95
+print(df1[df1['Score'].between(90,94)])
+
+#print those rows where score is greater than 15 and attempts less than 2
+import pandas as pd
+df2 = pd.DataFrame({'name': ['Anastasia', 'Dima', 'Katherine', 'James', 'Emily', 'Michael', 'Matthew', 'Laura', 'Kevin', 'Jonas'],
+'score': [12.5, 9, 16.5, np.nan, 9, 20, 14.5, np.nan, 8, 19],
+'attempts': [1, 3, 2, 3, 2, 3, 1, 1, 2, 1],
+'qualify': ['yes', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'no', 'no', 'yes']},index=labels)
+labels = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+print(df2)
+print(df2[(df2['attempts']<2) & (df['score']>15)])
+
+#change score of row d to 11.5
+df2.loc['d','score'] = 11.5
+df2
+
+#get sum of all attempts 
+print('sum of attempts:',df2['attempts'].sum())
+
+#mean of score
+print('mean of score:',df2['score'].mean())
+
+#add a new row k to dataframe and then delete it 
+df2.loc['k'] = ['suresh',20,1,'yes']
+print(df2)
+df2 = df2.drop('k')
+print(df2)
+
+#sort data by name in descending order and then by score in ascending order
+print(df2.sort_values('name',ascending=False))
+print(df2.sort_values('score'))
